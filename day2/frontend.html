@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="commnStyle.css">
+</head>
+<body>
+    <div id="nav">
+        <div><a href="backend.html">backend</a></div>
+        <div><a href="frontend.html">frontend</a></div>
+        <div><a href="navbar.html">main</a></div>
+    </div>
+    <h1>frontend</h1>
+
+    <div id="parent">
+
+    </div>
+</body>
+</html>
+
+
+<script>
+    var fData=JSON.parse(localStorage.getItem("data"));
+    var par=document.getElementById("parent");
+    par.innerHTML="";
+     
+    fData.forEach(function(el){
+       
+
+        var child=document.createElement("div");
+        child.style.boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px";
+        child.style.borderRadius="11px";
+
+        var O1=document.createElement("img");
+        O1.setAttribute("src",el.img);
+        O1.style.width="100%";
+        O1.style.borderTopLeftRadius="11px";
+        O1.style.borderTopRightRadius="11px";
+
+        var O2=document.createElement("h1");
+        O2.innerText=el.name;
+        O2.style.textAlign="center"
+
+        var O3=document.createElement("p");
+        O3.innerText=el.role;
+        O3.style.textAlign="center"
+        O3.style.marginTop="-25px"
+
+        var O4=document.createElement("img");
+        O4.setAttribute("src",el.logo);
+        O4.style.width="40%";
+        O4.style.display="block";
+        O4.style.margin="auto";
+
+        child.append(O1,O2,O3,O4);
+        par.append(child);
+
+        
+    });
+</script>
