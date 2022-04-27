@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="parent">
+        <label for="">Email</label><br>
+        <input type="email"><br>
+        <label for="">Phone</label><br>
+        <input type="number"><br>
+        <label for="">Password</label><br>
+        <input type="password"><br>
+        <button><a href="logIn.html"> Sign Up</a></button>
+    </div>
+    
+      
+    
+</body>
+</html>
+<script>
+    var A=(JSON.parse(localStorage.getItem("data"))||[]);
+    document.querySelector("button").addEventListener("click",saveData);
+    function saveData(){
+        // event.preventDefault()
+       // console.log("KKK")
+       var i1=document.querySelectorAll("input")[0].value;
+       var i2=document.querySelectorAll("input")[1].value;
+       var i3=document.querySelectorAll("input")[2].value;
+       
+       var obj={
+           email:i1,
+           phone:i2,
+           password:i3
+       }
+       A.push(obj);
+      localStorage.setItem("data",JSON.stringify(A));
+   console.log(A);
+    }
+
+</script>

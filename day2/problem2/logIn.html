@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="parent">
+        <label for="">Email</label><br>
+        <input type="email"><br>
+        <label for="">Password</label><br>
+        <input type="password"><br>
+        <button> log in</button>
+    </div>
+    
+      
+    
+</body>
+</html>
+<script>
+    document.querySelector("button").addEventListener("click",saveData);
+    function saveData(){
+        // event.preventDefault()
+       // console.log("KKK")
+       var i1=document.querySelectorAll("input")[0].value;
+       var i2=document.querySelectorAll("input")[1].value;
+       
+       var pc=JSON.parse(localStorage.getItem("data"));
+       var flag=true;
+       pc.forEach(function(el){
+           if(el.email===i1){
+                if((el.password==i2)){
+                    alert("login successful");
+                    flag=false;
+                }
+                
+        
+           }
+          
+       });
+       if(flag){
+        alert("wrong credentials");
+       }
+      
+    }
+
+</script>
